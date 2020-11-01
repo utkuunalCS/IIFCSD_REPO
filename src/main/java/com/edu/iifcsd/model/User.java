@@ -14,6 +14,10 @@ enum GENDER {FEMALE, MALE, OTHER}
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
+/**
+ * @Author uunal
+ */
 public class User {
     @Id
     public String id;
