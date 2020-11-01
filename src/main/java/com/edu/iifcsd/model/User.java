@@ -23,6 +23,5 @@ public class User {
     private String lastName;
     private int age;
     private GENDER gender;
-    private Date birthDay;
 
 }

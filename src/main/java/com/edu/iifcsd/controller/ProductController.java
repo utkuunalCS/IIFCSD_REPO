@@ -17,7 +17,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("Product/health")
+    @GetMapping("product/health")
     public ResponseEntity<String> health(){
         return new ResponseEntity("200", HttpStatus.OK);
     }

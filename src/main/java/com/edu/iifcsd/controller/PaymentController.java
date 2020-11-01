@@ -17,7 +17,7 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    @GetMapping("Payment/health")
+    @GetMapping("payment/health")
     public ResponseEntity<String> health(){
         return new ResponseEntity("200", HttpStatus.OK);
     }
