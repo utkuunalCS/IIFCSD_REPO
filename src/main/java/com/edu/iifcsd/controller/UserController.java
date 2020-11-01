@@ -16,17 +16,17 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/health")
+    @GetMapping("User/health")
     public ResponseEntity<String> health(){
         return new ResponseEntity("200", HttpStatus.OK);
     }
-    @GetMapping("/getUserInfo")
+    @GetMapping("User/getUserInfo")
     public ResponseEntity<User> getUserInfo(@RequestParam("id") String id){
 
         User user = userService.userDisplay(id);
         return new ResponseEntity(user, HttpStatus.OK);
     }
-    @PostMapping("/addUser")
+    @PostMapping("User/addUser")
     public ResponseEntity<User> addUser(@RequestBody User usr){
 
         return new ResponseEntity(userService.saveUser(usr), HttpStatus.OK);
