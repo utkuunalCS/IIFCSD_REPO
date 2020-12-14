@@ -2,6 +2,8 @@ package com.edu.iifcsd.service;
 
 import com.edu.iifcsd.model.User;
 import com.edu.iifcsd.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,11 +12,9 @@ import java.util.Optional;
 @Service
 @Transactional
 public class UserService {
-    private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @Autowired
+    @Qualifier("userRepository")
+    private UserRepository userRepository;
 
     public User userDisplay(String id){
         Optional<User> optUsr = userRepository.findById(id);
