@@ -8,12 +8,14 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
+import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import styles from "./ProductTable.module.scss";
+import { useState } from 'react';
 
 export interface ProductInfo {
     category: string;
@@ -27,6 +29,7 @@ export interface ProductInfo {
     vendor: string;
     history: [];
 }
+
 
 const useRowStyles = makeStyles({
   root: {
@@ -109,9 +112,31 @@ function Row(props: { row: ProductInfo }) {
 
 function ProductTable( props: { products: ProductInfo[] } ) {
   const classes = useRowStyles();
+  const [ page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(50);
+  const [ pageData, setPageData] = useState(props.products.slice(0, 50));
+
+  function handleChangePage() {
+      
+      setPageData(props.products.slice(page*rowsPerPage, (page+1)*rowsPerPage));
+      setPage(page+1);
+  }
+
+  function handleRowsPerPage() {
+        setRowsPerPage(50);
+  }
   return (
     <div className={classes.root}>
       <TableContainer component={Paper}>
+      <TablePagination
+            rowsPerPageOptions={[50]}
+            component="div"
+            count={props.products.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleRowsPerPage}
+          />
         <Table aria-label="collapsible table">
           <TableHead>
             <TableRow>
@@ -126,7 +151,7 @@ function ProductTable( props: { products: ProductInfo[] } ) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.products.map((row) => (
+            {pageData.map((row) => (
               <Row key={row.serialNumber} row={row} />
             ))}
           </TableBody>

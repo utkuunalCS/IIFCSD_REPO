@@ -22,9 +22,11 @@ public class Payment {
     private long referenceID;
     private String userID;
     private Date date;
+    //Payment method
     private METHOD method;
+    //Total payment amount
     private double totalAmount;
+    //Keep products' IDs
     private List<String> productList;
-
 
 }

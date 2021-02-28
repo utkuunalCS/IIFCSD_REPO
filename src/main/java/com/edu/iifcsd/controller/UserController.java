@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping("user/getUserInfo")
     public ResponseEntity<User> getUserInfo(@RequestParam("id") String id){
 
-        User user = userService.userDisplay(id);
+        User user = userService.displayUser(id);
         return new ResponseEntity(user, HttpStatus.OK);
     }
     @PostMapping("user/addUser")
