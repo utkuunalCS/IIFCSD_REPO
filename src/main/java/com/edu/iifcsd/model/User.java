@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import java.util.Date;
-
 enum GENDER {FEMALE, MALE, OTHER}
 
 @Getter
@@ -15,9 +13,6 @@ enum GENDER {FEMALE, MALE, OTHER}
 @NoArgsConstructor
 @AllArgsConstructor
 
-/**
- * @Author uunal
- */
 public class User {
     @Id
     public String id;

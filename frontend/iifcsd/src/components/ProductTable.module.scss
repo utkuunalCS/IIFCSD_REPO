@@ -1,0 +1,14 @@
+.root {
+  max-height: 100%;
+  max-width: 100%;
+  border-bottom: unset;
+}
+
+.productRow {
+  display: flex;
+}
+
+.smoothView {
+  height: 20vh;
+  display: block !important;
+}
