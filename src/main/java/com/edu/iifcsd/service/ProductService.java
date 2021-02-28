@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -19,6 +20,14 @@ public class ProductService {
 
     public Product insert(Product product){
         return productRepository.insert(product);
+    }
+
+    public Optional<Product> getProduct(String productID){
+        return productRepository.findById(productID);
+    }
+
+    public void removeProduct(String productID){
+        productRepository.deleteById(productID);
     }
 
     public List<Product> getAllProducts(){

@@ -17,13 +17,13 @@ enum CATEGORY {ELECTRONIC, HOME, PETS, HEALTH, FASHION, CHILDREN, OTHER}
 public class Product {
 
     @Id
-    private long serialNumber;
+    private String serialNumber;
     private String name;
     private String vendor;
     private String imgPath;
     private Date expiryDate;
     private CATEGORY category;
-    private double price;
+    private String price;
     private double rate;
     private int stockAmount;
 
