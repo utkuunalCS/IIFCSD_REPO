@@ -16,6 +16,16 @@ public class UserController {
         this.userService = userService;
     }
 
+    @RequestMapping("/user")
+    public String loginUser(){
+        return "User kullanıcı girişi başarılı";
+    }
+
+    @RequestMapping("/admin")
+    public String loginAdmin(){
+        return "Admin kullanıcı girişi başarılı";
+    }
+
     @GetMapping("user/health")
     public ResponseEntity<String> health(){
         return new ResponseEntity("200", HttpStatus.OK);

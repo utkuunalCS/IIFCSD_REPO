@@ -1,5 +1,6 @@
 package com.edu.iifcsd.controller;
 
+import com.edu.iifcsd.model.Payment;
 import com.edu.iifcsd.service.PaymentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,4 +22,6 @@ public class PaymentController {
     public ResponseEntity<String> health(){
         return new ResponseEntity("200", HttpStatus.OK);
     }
+
+    //public ResponseEntity<Payment> findDuplicatedPayments(){ }
 }
