@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -38,6 +39,11 @@ public class PaymentController {
     @GetMapping("payment/getAllPaymentsOfUser")
     public ResponseEntity<List<Payment>> getAllPaymentsOfUser(String userID){
         return new ResponseEntity(paymentService.getAllPayments(userID), HttpStatus.OK);
+    }
+
+    @DeleteMapping("payment/removePayment")
+    public void removePayment(String paymentID){
+        paymentService.removePayment(paymentID);
     }
 
 

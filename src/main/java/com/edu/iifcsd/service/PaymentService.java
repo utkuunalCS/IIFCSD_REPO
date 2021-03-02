@@ -31,8 +31,8 @@ public class PaymentService {
         return paymentRepository.findById(paymentID);
     }
 
-    public void removePayment(String productID){
-        paymentRepository.deleteById(productID);
+    public void removePayment(String paymentID){
+        paymentRepository.deleteById(paymentID);
     }
 
     public List<Payment> getAllPayments(){
