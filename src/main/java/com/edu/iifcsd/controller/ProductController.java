@@ -23,10 +23,22 @@ public class ProductController {
         return new ResponseEntity("200", HttpStatus.OK);
     }
 
-    @PostMapping("user/addProduct")
-    public ResponseEntity<Product> addUser(@RequestBody Product product){
+    @DeleteMapping("user/removeProduct")
+    public void removeProduct(@RequestBody String productID)
+    {
+        productService.removeProduct(productID);
+    }
 
+    @PostMapping("user/addProduct")
+    public ResponseEntity<Product> addUser(@RequestBody Product product)
+    {
         return new ResponseEntity<>(productService.insert(product), HttpStatus.OK);
+    }
+
+    @GetMapping("product/getProduct")
+    public ResponseEntity<Product> getProduct(String productID)
+    {
+        return new ResponseEntity(productService.getProduct(productID), HttpStatus.OK);
     }
 
     @GetMapping("product/getAllProducts")

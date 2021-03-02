@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @CrossOrigin
 @Controller
 public class PaymentController {
@@ -23,5 +25,20 @@ public class PaymentController {
         return new ResponseEntity("200", HttpStatus.OK);
     }
 
-    //public ResponseEntity<Payment> findDuplicatedPayments(){ }
+    @GetMapping("payment/getPayment")
+    public ResponseEntity<Payment> getPayment(String paymentID){
+        return new ResponseEntity(paymentService.getPayment(paymentID), HttpStatus.OK);
+    }
+
+    @GetMapping("payment/getAllPayments")
+    public ResponseEntity<List<Payment>> getAllPayments(){
+        return new ResponseEntity(paymentService.getAllPayments(), HttpStatus.OK);
+    }
+
+    @GetMapping("payment/getAllPaymentsOfUser")
+    public ResponseEntity<List<Payment>> getAllPaymentsOfUser(String userID){
+        return new ResponseEntity(paymentService.getAllPayments(userID), HttpStatus.OK);
+    }
+
+
 }
