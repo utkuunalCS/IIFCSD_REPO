@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 enum METHOD {VISA, MASTERCARD, AMERICAN_EXPRESS, GPAY, PAYPAL, PROMOCODE}
@@ -19,13 +19,13 @@ enum METHOD {VISA, MASTERCARD, AMERICAN_EXPRESS, GPAY, PAYPAL, PROMOCODE}
 public class Payment {
 
     @Id
-    private long referenceID;
-    private String userID;
+    private String referenceID;
+    private int userID;
     private Date date;
     //Payment method
     private METHOD method;
     //Total payment amount
-    private double totalAmount;
+    private String totalAmount;
     //Keep products' IDs
     private List<String> productList;
 

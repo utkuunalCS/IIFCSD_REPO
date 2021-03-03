@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -44,6 +45,11 @@ public class PaymentController {
     @DeleteMapping("payment/removePayment")
     public void removePayment(String paymentID){
         paymentService.removePayment(paymentID);
+    }
+
+    @PostMapping("payment/assignRandomProductsToPayments")
+    public void assignRandomProductsToPayments(){
+        paymentService.assignRandomProductsToPayments();
     }
 
 
