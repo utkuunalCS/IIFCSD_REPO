@@ -26,5 +26,6 @@ public class Product {
     private String price;
     private double rate;
     private int stockAmount;
+    private int numberOfSales;
 
 }
